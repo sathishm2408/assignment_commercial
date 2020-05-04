@@ -1,0 +1,77 @@
+.App {
+  text-align: left;
+  background-color: #eaf5f0;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: seagreen;
+  height: 50px;
+  padding: 20px;
+  color: white;
+  margin: -8px
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.Message-div{
+  background-color: white;
+  padding: 5px;
+  width: fit-content;
+  margin: 25px;
+  border-radius: 10px;
+}
+
+.message-time{
+  font-size: smaller;
+  margin-left: 5px;
+  color: darkgray;
+}
+
+.message{
+  margin-top: 10px !important;
+  margin-bottom: 5px;
+  margin-left: inherit; 
+}
+
+.user-title{
+  margin: 7px !important;
+  text-transform: uppercase;
+  color: blue;
+}
+
+.avatar{
+  width: 25px;
+  margin-right: 10px;
+  border-radius: 12px;
+}
+
+.Message-div .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 15px;
+  float: right;
+
+  /* Position the tooltip */
+  /* position: absolute;
+  z-index: 1; */
+}
+
+.Message-div:hover .tooltiptext {
+  visibility: visible;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
