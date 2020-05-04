@@ -1,8 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount, render } from 'enzyme';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+const mockStore = configureMockStore();
 import {App} from './App';
+import { getChatLog, getMembersDetails } from './service';
 
 it('should render without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App.WrappedComponent />, div);
+  let wrapper;
+  let initialState = {
+    message: null,
+    members: null
+  };
+
+  const store = mockStore(initialState);
+  wrapper = shallow(<Provider store={store}>
+    <App />
+  </Provider>)
 });

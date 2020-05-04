@@ -16,18 +16,3 @@ export function getMembersDetails() {
     payload: getMembers()
   };
 }
-
-// export function getViews() {
-//   return dispatch => {
-
-//         services.getViews()
-//               .then(productData => {
-//                     dispatch(successViews(productData), console.log("called in action", productData))
-//               }
-//               )
-//               .catch(e => {
-//                     dispatch(failViews(e.message))
-//                     console.log(e.message)
-//               })
-//   }
-// }

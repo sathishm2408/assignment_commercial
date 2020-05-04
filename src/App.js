@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 //import { bindActionCreators } from 'redux';
 
 import { getChatLog, getMembersDetails } from './service';
-
 import './App.css';
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.props.getChatLog();
-    this.props.getMembersDetails();
+    // this.props.getChatLog();
+    // this.props.getMembersDetails();
     this.state = {
       message: null,
       members: null
@@ -29,10 +28,11 @@ export class App extends Component {
 
     return this.state.members.filter(member => member.id === userId)
   }
-  // componentDidMount(){
+  componentDidMount(){
   //   console.log("22222222");  
-  //   this.props.getChatLog(); 
-  // }
+    this.props.getChatLog(); 
+    this.props.getMembersDetails();
+  }
 
   render() {
     console.log("1111", this.state.message);
