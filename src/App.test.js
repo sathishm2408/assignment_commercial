@@ -25,7 +25,7 @@ it('should render App component without crashing', () => {
 
   const store = mockStore(initialState);
   wrapper = shallow(<Provider store={store}>
-    <App {...props} />
+    <ConnectedApp {...props} />
   </Provider>)
 
   
