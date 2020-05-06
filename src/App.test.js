@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 const mockStore = configureMockStore();
 import ConnectedApp, { App } from './App';
+import {getChatLog, getMembersDetails} from './service'
 import messages from './messages.json';
 import members from './members.json';
 
@@ -69,6 +70,54 @@ it('should call userDetails method', () => {
 
   expect(instance.userDetails("fe27b760-a915-475c-80bb-7cdf14cc6ef3")).toStrictEqual(member)
 })
+
+});
+
+
+describe('App Component', () => {
+  let wrapper;
+  let initialState = {
+    message: null,
+    members: null
+  };
+
+  let props = {
+    // getChatLog: jest.fn(() => { }),
+    // getMembersDetails: jest.fn(() => { }),
+    // getChatLog : jest.fn(() => messages),
+    // getMembersDetails : jest.fn(() => members),
+    // message: messages,
+    // members: members
+  }
+
+  const store = mockStore(initialState);
+
+  beforeEach(()=>{
+    store.dispatch = jest.fn();
+
+    wrapper = mount(<Provider store={store}>
+      <ConnectedApp {...props} />
+    </Provider>
+      )
+});
+
+afterEach(()=>{
+    wrapper.unmount();
+});
+
+it('should render ConnectedApp component without crashing',()=>{
+  expect(wrapper.exists()).toBe(true);
+});
+
+it('should dispatch the actions', () => {
+  expect(store.dispatch).toHaveBeenCalledTimes(2);
+  expect(store.dispatch).toHaveBeenCalledWith(
+    getChatLog()
+  );
+  expect(store.dispatch).toHaveBeenCalledWith(
+    getMembersDetails()
+  );
+});
 
 });
 
