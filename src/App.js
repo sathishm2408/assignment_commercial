@@ -8,8 +8,8 @@ import './App.css';
 export class App extends Component {
   constructor(props) {
     super(props);
-    // this.props.getChatLog();
-    // this.props.getMembersDetails();
+    this.props.getChatLog();
+    this.props.getMembersDetails();
     this.state = {
       message: null,
       members: null
@@ -17,7 +17,7 @@ export class App extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log("3333333");
+    // console.log("3333333");
     return {
       message: props.message,
       members: props.members
@@ -28,23 +28,23 @@ export class App extends Component {
 
     return this.state.members.filter(member => member.id === userId)
   }
-  componentDidMount(){
-  //   console.log("22222222");  
-    this.props.getChatLog(); 
-    this.props.getMembersDetails();
-  }
+  // componentDidMount(){
+  // //   console.log("22222222");  
+  //   this.props.getChatLog(); 
+  //   this.props.getMembersDetails();
+  // }
 
   render() {
-    console.log("1111", this.state.message);
-    console.log("2222", this.state.members);
+    // console.log("1111", this.state.message);
+    // console.log("2222", this.state.members);
     let allMessages, sortedMessages, memberDetails, time, meridiem = 'AM';
     if (this.state.message && this.state.members) {
       sortedMessages = [...this.state.message];
       sortedMessages.sort((a, b)=>{
-        console.log("6666",a.timestamp);
+        // console.log("6666",a.timestamp);
         
         return a.timestamp < b.timestamp});
-      console.log("555555",sortedMessages);
+      // console.log("555555",sortedMessages);
       
       allMessages = sortedMessages.map((userMessage) => {
         memberDetails = this.userDetails(userMessage.userId)
@@ -83,7 +83,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("state", state)
+  // console.log("state", state)
   return {
     message: state.messages,
     members: state.members
