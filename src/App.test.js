@@ -8,33 +8,6 @@ import ConnectedApp, { App } from './App';
 import messages from './messages.json';
 import members from './members.json';
 
-// const thunk = ({ dispatch, getState }) => next => action => {
-//   if (typeof action === 'function') {
-//     return action(dispatch, getState)
-//   }
-
-//   return next(action)
-// }
-
-// const create = () => {
-//   const store = {
-//     getState: jest.fn(() => ({})),
-//     dispatch: jest.fn()
-//   }
-//   const next = jest.fn()
-
-//   const invoke = action => thunk(store)(next)(action)
-
-//   return { store, next, invoke }
-// }
-
-// it('passes through non-function action', () => {
-//   const { next, invoke } = create()
-//   const action = { type: 'TEST' }
-//   invoke(action)
-//   expect(next).toHaveBeenCalledWith(action)
-// })
-
 describe('App Component', () => {
   let wrapper;
   let initialState = {
@@ -103,4 +76,32 @@ it('should call userDetails method', () => {
 //   //const fn = jest.fn()
 //  // expect(fn).toHaveBeenCalled()
 //  // expect(wrapper.find('h4').length).toBe(50)
+// })
+
+
+// const thunk = ({ dispatch, getState }) => next => action => {
+//   if (typeof action === 'function') {
+//     return action(dispatch, getState)
+//   }
+
+//   return next(action)
+// }
+
+// const create = () => {
+//   const store = {
+//     getState: jest.fn(() => ({})),
+//     dispatch: jest.fn()
+//   }
+//   const next = jest.fn()
+
+//   const invoke = action => thunk(store)(next)(action)
+
+//   return { store, next, invoke }
+// }
+
+// it('passes through non-function action', () => {
+//   const { next, invoke } = create()
+//   const action = { type: 'TEST' }
+//   invoke(action)
+//   expect(next).toHaveBeenCalledWith(action)
 // })
